@@ -19,16 +19,11 @@ module CTF
     end
 
     def pow(a, b)
-      res=1
-      until b==0
-        res*=a if b.odd?
-        a*=a
-        b/=2
-      end
-      res
+      a**b # original power is faster than binary-algorithm in ruby
     end
 
     def mod_pow(a, b, m)
+      raise 'b has to be non-negative' if b<0
       res=1
       until b==0
         res*=a if b.odd?
