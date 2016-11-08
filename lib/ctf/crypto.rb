@@ -1,10 +1,12 @@
 module CTF
   module Crypto
     def gcd(x, y)
-      x,y = [x,y].sort
+      x,y = [x,y].map(&:abs).sort
       until x==0
         x,y = y % x, x
       end
+
+      return nil if y.zero?
       y
     end
 
