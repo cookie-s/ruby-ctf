@@ -1,4 +1,4 @@
-# ruby-ctf
+# ruby-ctf [![Build Status](https://travis-ci.org/cookie-s/ruby-ctf.svg?branch=master)](https://travis-ci.org/cookie-s/ruby-ctf)
 
 my own library for me
 
