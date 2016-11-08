@@ -1,4 +1,4 @@
-# ruby-ctf [![Build Status](https://travis-ci.org/cookie-s/ruby-ctf.svg?branch=master)](https://travis-ci.org/cookie-s/ruby-ctf)
+# ruby-ctf [![Build Status](https://travis-ci.org/cookie-s/ruby-ctf.svg?branch=master)](https://travis-ci.org/cookie-s/ruby-ctf) [![Coverage Status](https://coveralls.io/repos/github/cookie-s/ruby-ctf/badge.svg?branch=master)](https://coveralls.io/github/cookie-s/ruby-ctf?branch=master)
 
 my own library for me
 
