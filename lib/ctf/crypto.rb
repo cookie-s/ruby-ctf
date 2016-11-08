@@ -23,7 +23,7 @@ module CTF
     end
 
     def mod_pow(a, b, m)
-      raise 'b has to be non-negative' if b<0
+      raise ArgumentError, 'b has to be non-negative' if b<0
       res=1
       until b==0
         res*=a if b.odd?
@@ -37,7 +37,7 @@ module CTF
 
     def chinese (*args)
       max = args.map(&:mod).inject(:*)
-      series = args.map{|m| (m.rem * max * mod(max/m.mod, m).inv / m.mod)}
+      series = args.map{|m| (m.rem * max * (mod(max/m.mod, m.mod).inv.rem) / m.mod)}
       mod(series.inject(&:+) % max, max)
     end
 
@@ -51,7 +51,7 @@ module CTF
 
       def inv
         tmp = Crypto.extgcd(@rem,@mod)
-        raise 'not co-prime' unless tmp[2] == 1
+        raise ArgumentError, 'not co-prime' unless tmp[2] == 1
         Crypto.mod(tmp[0], @mod)
       end
 
