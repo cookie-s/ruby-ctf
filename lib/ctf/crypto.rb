@@ -18,10 +18,15 @@ module CTF
     def extgcd(a, b)
       # return [x, y, gcd] such that ax + by = gcd
       if b.zero?
-        [1, 0, a]
+        if a.zero?
+          nil
+        else
+          [1, 0, a]
+        end
       else
         prev = extgcd(b, a % b)
-        [prev[1], prev[0]-(a/b)*prev[1], prev[2]]
+        return nil unless prev
+        [prev[1], prev[0]-(a/b)*prev[1], prev[2]].map{|x| x * (prev[2]<0 ? -1 : 1)}
       end
     end
 
@@ -43,7 +48,7 @@ module CTF
     end
 
     def chinese (*args)
-      max = args.map(&:mod).inject(:*)
+      max = args.map(&:mod).inject{|x, y| lcm(x, y)}
       series = args.map{|m| (m.rem * max * (mod(max/m.mod, m.mod).inv.rem) / m.mod)}
       mod(series.inject(&:+) % max, max)
     end

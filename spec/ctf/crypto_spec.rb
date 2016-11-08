@@ -89,8 +89,8 @@ describe CTF::Crypto do
         expect( 0*x + 5*y ).to eq g
       end
       example '(0, 0)' do
-        x, y, g = subject.extgcd(0, 0) 
-        expect( 0*x + 0*y ).to eq g
+        res = subject.extgcd(0, 0) 
+        expect( res ).to be nil
       end
       example '(-3, 5)' do
         x, y, g = subject.extgcd(-3, 5) 
