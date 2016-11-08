@@ -33,17 +33,17 @@ describe CTF::Crypto do
     example '(6, 9) => 18' do 
       expect( subject.lcm(6, 9) ).to eq 18
     end
-    example '(0, 10) => 0' do
-      expect( subject.lcm(0, 10) ).to eq 0
-    end
     example '(-5, 3) => 15' do
       expect( subject.lcm(-5, 3) ).to eq 15
     end
     example '(-5, -3) => 15' do
       expect( subject.lcm(-5, -3) ).to eq 15
     end
+    example '(0, 10) => 0' do
+      expect( subject.lcm(0, 10) ).to be nil
+    end
     example '(0, 0) => 0' do
-      expect( subject.lcm(0, 0) ).to eq 0
+      expect( subject.lcm(0, 0) ).to be nil
     end
   end
 

@@ -10,6 +10,11 @@ module CTF
       y
     end
 
+    def lcm(x, y)
+      return nil if x*y == 0
+      (x*y / gcd(x, y)).abs
+    end
+
     def extgcd(a, b)
       # return [x, y, gcd] such that ax + by = gcd
       if b.zero?
